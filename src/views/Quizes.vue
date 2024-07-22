@@ -25,7 +25,6 @@ watch(search, () => {
 </template>
 
 <style scoped>
-
 header {
 	margin-top: 30px;
 	margin-bottom: 10px;

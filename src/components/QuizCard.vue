@@ -27,7 +27,14 @@ function goToQuiz() {
 	margin-bottom: 30px;
 	border-radius: 5px;
 	overflow: hidden;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -35,13 +42,25 @@ function goToQuiz() {
 	height: 200px;
 	object-fit: cover;
 	margin: 0;
+	border-radius: 10px 10px 0 0;
 }
 
 .card-body {
-	padding: 0 20px;
+	padding: 20px;
+	border-radius: 0 0 10px 10px;
+	background-color: #f8f9fa;
 }
 
 .card-body h2 {
 	font-weight: bold;
+	font-size: 1.5rem;
+	margin-top: 0;
+	margin-bottom: 10px;
+	color: #343a40;
+}
+
+.card-body p {
+	margin: 0;
+	color: #6c757d;
 }
 </style>
