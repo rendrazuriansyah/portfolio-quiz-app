@@ -1,3 +1,103 @@
 <template>
-	<h1>Quiz Page</h1>
+	<header>
+		<h4>Questions 1/2</h4>
+		<div class="bar">
+			<div class="bar-progress"></div>
+		</div>
+	</header>
+	<section id="question-container">
+		<h1 class="question-title">What is the capital of France?</h1>
+	</section>
+	<section id="options-container">
+		<div class="option">
+			<p class="option-label">A.</p>
+			<div class="option-value">Berlin</div>
+		</div>
+		<div class="option">
+			<p class="option-label">B.</p>
+			<div class="option-value">Madrid</div>
+		</div>
+		<div class="option">
+			<p class="option-label">C.</p>
+			<div class="option-value">Paris</div>
+		</div>
+	</section>
 </template>
+
+<style scoped>
+header {
+	margin-top: 30px;
+}
+
+header h4 {
+	font-size: 32px;
+	color: #343a40;
+}
+
+.bar {
+	width: 100%;
+	height: 60px;
+	border: 3px solid #f8ad54;
+	margin: 30px 0;
+	border-radius: 10px;
+}
+
+.bar-progress {
+	height: 100%;
+	width: 50%;
+	background-color: #f8ad54;
+	border-radius: 10px;
+}
+
+#question-container {
+	margin: 40px 0;
+}
+
+.question-title {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: #343a40;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+.option-label,
+.option-value {
+	transition: background-color 0.2s ease-in-out;
+}
+
+.option:hover .option-label,
+.option:hover .option-value {
+	background-color: #ffc107;
+}
+
+.option-label {
+	font-size: 24px;
+	font-weight: bold;
+	width: 50px;
+	height: 50px;
+	background-color: #f8ad54;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px 0 0 10px;
+}
+
+.option-value {
+	font-size: 24px;
+	font-weight: bold;
+	padding: 0 20px;
+	background-color: #e9ecef;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-radius: 0 10px 10px 0;
+}
+</style>
