@@ -1,29 +1,37 @@
-# quiz-vue
+# Quiz
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple and interactive quiz application built with Vue.js.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+-   Multiple quiz categories
+-   Randomized questions for each quiz
+-   Real-time progress tracking
+-   Final score display with the option to retake quizzes
 
-## Customize configuration
+## Installation
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clone the repository: `git clone https://github.com/twingqywingqy/quiz-vue.git`
+2. Install dependencies: `npm install`
+3. Run the application: `npm run serve`
 
-## Project Setup
+## Usage
 
-```sh
-npm install
-```
+1. Open your browser and navigate to http://localhost:8080
+2. Select a quiz category
+3. Answer the questions
+4. View your score at the end
 
-### Compile and Hot-Reload for Development
+## Contributing
 
-```sh
-npm run dev
-```
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a pull request
 
-### Compile and Minify for Production
+## Screenshots
 
-```sh
-npm run build
-```
+![Screenshot 1](./screenshots/quizes-page.png)
+![Screenshot 2](./screenshots/quiz-page.png)
+![Screenshot 3](./screenshots/score-page.png)
