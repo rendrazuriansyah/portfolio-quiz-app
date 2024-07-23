@@ -23,8 +23,7 @@ function goToQuiz() {
 <style scoped>
 .card {
 	width: 270px;
-	margin-right: 30px;
-	margin-bottom: 30px;
+	margin: 20px auto;
 	border-radius: 5px;
 	overflow: hidden;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);

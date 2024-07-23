@@ -1,6 +1,8 @@
 <script setup>
 import QuizHeader from "@/components/QuizHeader.vue";
 import QuizContent from "@/components/QuizContent.vue";
+import QuizResult from "@/components/QuizResult.vue";
+
 import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import quizes from "../data/quizes.json";
@@ -8,25 +10,29 @@ import quizes from "../data/quizes.json";
 const route = useRoute();
 const quizId = parseInt(route.params.id);
 const quiz = quizes.find((quiz) => quiz.id === quizId);
+
 const currentQuestionIndex = ref(0);
+const numberOfCorrectAnswers = ref(0);
+const showResult = ref(false);
+
 const questionPage = computed(() => {
-	const totalQuestions = quiz.questions.length;
-	const currentPage = currentQuestionIndex.value + 1;
-	return `${
-		currentPage > totalQuestions ? totalQuestions : currentPage
-	} / ${totalQuestions}`;
+	return `Question ${currentQuestionIndex.value + 1} from ${
+		quiz.questions.length
+	}`;
 });
 const barPercentage = computed(() => {
-	const totalQuestions = quiz.questions.length;
-	const currentPage = currentQuestionIndex.value + 1;
-	const percentage = ((currentPage / totalQuestions) * 100).toFixed(2);
-	return `${percentage > 100 ? 100 : percentage}%`;
+	return `${
+		((currentQuestionIndex.value + 1) / quiz.questions.length) * 100
+	}%`;
 });
-const numberOfCorrectAnswers = ref(0);
 
 function onSelectOption(option) {
 	if (option.correct) {
 		numberOfCorrectAnswers.value++;
+	}
+	if (currentQuestionIndex.value === quiz.questions.length - 1) {
+		showResult.value = true;
+		return;
 	}
 	currentQuestionIndex.value++;
 }
@@ -35,15 +41,15 @@ function onSelectOption(option) {
 <template>
 	<QuizHeader :questionPage="questionPage" :barPercentage="barPercentage" />
 	<QuizContent
+		v-if="!showResult"
 		:question="quiz.questions[currentQuestionIndex]"
 		@selectOption="onSelectOption"
 	/>
-	<button
-		@click="currentQuestionIndex++"
-		:disabled="currentQuestionIndex === quiz.questions.length - 1"
-	>
-		Next
-	</button>
+	<QuizResult
+		v-else
+		:quizQuestionsLength="quiz.questions.length"
+		:numberOfCorrectAnswers="numberOfCorrectAnswers"
+	/>
 </template>
 
 <style scoped></style>
