@@ -17,11 +17,22 @@ const barPercentage = computed(() => {
 		((currentQuestionIndex.value + 1) / quiz.questions.length) * 100
 	}%`;
 });
+const numberOfCorrectAnswers = ref(0);
+
+function onSelectOption(option) {
+	if (option.correct) {
+		numberOfCorrectAnswers.value++;
+	}
+	currentQuestionIndex.value++;
+}
 </script>
 
 <template>
 	<QuizHeader :questionPage="questionPage" :barPercentage="barPercentage" />
-	<QuizContent :question="quiz.questions[currentQuestionIndex]" />
+	<QuizContent
+		:question="quiz.questions[currentQuestionIndex]"
+		@selectOption="onSelectOption"
+	/>
 	<button
 		@click="currentQuestionIndex++"
 		:disabled="currentQuestionIndex === quiz.questions.length - 1"
