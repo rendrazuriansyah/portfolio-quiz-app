@@ -17,7 +17,7 @@ A simple and interactive quiz application built with Vue.js.
 
 ## Usage
 
-1. Open your browser and navigate to http://localhost:8080
+1. Open your browser and navigate to http://localhost:5173
 2. Select a quiz category
 3. Answer the questions
 4. View your score at the end
