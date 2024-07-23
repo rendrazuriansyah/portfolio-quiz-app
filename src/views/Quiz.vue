@@ -10,12 +10,17 @@ const quizId = parseInt(route.params.id);
 const quiz = quizes.find((quiz) => quiz.id === quizId);
 const currentQuestionIndex = ref(0);
 const questionPage = computed(() => {
-	return `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`;
+	const totalQuestions = quiz.questions.length;
+	const currentPage = currentQuestionIndex.value + 1;
+	return `${
+		currentPage > totalQuestions ? totalQuestions : currentPage
+	} / ${totalQuestions}`;
 });
 const barPercentage = computed(() => {
-	return `${
-		((currentQuestionIndex.value + 1) / quiz.questions.length) * 100
-	}%`;
+	const totalQuestions = quiz.questions.length;
+	const currentPage = currentQuestionIndex.value + 1;
+	const percentage = ((currentPage / totalQuestions) * 100).toFixed(2);
+	return `${percentage > 100 ? 100 : percentage}%`;
 });
 const numberOfCorrectAnswers = ref(0);
 
