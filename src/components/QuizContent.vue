@@ -1,19 +1,17 @@
+<script setup>
+import { defineProps } from "vue";
+
+const { question } = defineProps(["question"]);
+</script>
+
 <template>
 	<section id="question-container">
-		<h1 class="question-title">What is the capital of France?</h1>
+		<h1 class="question-title">{{ question.text }}</h1>
 	</section>
 	<section id="options-container">
-		<div class="option">
-			<p class="option-label">A.</p>
-			<div class="option-value">Berlin</div>
-		</div>
-		<div class="option">
-			<p class="option-label">B.</p>
-			<div class="option-value">Madrid</div>
-		</div>
-		<div class="option">
-			<p class="option-label">C.</p>
-			<div class="option-value">Paris</div>
+		<div class="option" v-for="option in question.answers" :key="option.id">
+			<p class="option-label">{{ option.label }}.</p>
+			<div class="option-value">{{ option.text }}</div>
 		</div>
 	</section>
 </template>
@@ -49,7 +47,7 @@
 .option-label {
 	font-size: 24px;
 	font-weight: bold;
-	width: 50px;
+	width: 60px;
 	height: 50px;
 	background-color: #f8ad54;
 	display: flex;
